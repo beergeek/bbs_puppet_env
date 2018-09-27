@@ -6,11 +6,7 @@ group :test do
   gem "rspec"
   gem "rspec-puppet"
   gem "puppetlabs_spec_helper"
-  gem 'onceover', '>= 3.3.2'
-#  gem 'onceover', git: 'https://github.com/beergeek/onceover.git', branch: 'improve_plugin_support'
-  gem 'onceover-gatekeeper', git: 'https://github.com/dylanratcliffe/onceover-gatekeeper.git'
-#  gem 'onceover-gatekeeper', git: 'https://github.com/beergeek/onceover-gatekeeper.git', branch: 'fix_for_new_rspec'
-  #gem "onceover", :git =>  'https://github.com/beergeek/onceover.git', :branch => 'shared_examples'
+  gem 'onceover', '>= 3.8.0'
   gem "xmlrpc"
 end
 

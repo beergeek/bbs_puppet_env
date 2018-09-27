@@ -7,7 +7,6 @@ group :test do
   gem "rspec-puppet"
   gem "puppetlabs_spec_helper"
   gem 'onceover', '>= 3.8.0'
-  gem "xmlrpc"
 end
 
 group :pre do

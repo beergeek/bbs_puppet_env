@@ -56,7 +56,7 @@ class profile::pipelines (
       env                       => $pfa_env_params,
     }
   }
-  if 'cd4pe' in $pipeline_type { 
+  if 'cd4pe' in $pipeline_type {
     docker::image { 'puppet/continuous-delivery-for-puppet-enterprise':
       tag => 'latest',
     }

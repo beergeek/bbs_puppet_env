@@ -73,6 +73,6 @@ mod 'albatrossflavour-os_patching', '0.5.0'
 mod 'os_updates',
   :git => 'https://github.com/beergeek/os_updates.git',
   :branch => 'master'
-mod 'sqlserver',
-  :git => 'https://192.168.0.6:8443/scm/pup/puppetlabs-sqlserver.git',
-  :tag => '2.1.1'
+#mod 'sqlserver',
+#  :git => 'https://192.168.0.6:8443/scm/pup/puppetlabs-sqlserver.git',
+#  :tag => '2.1.1'

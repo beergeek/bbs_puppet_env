@@ -5,7 +5,6 @@ group :test do
   gem "puppet", ENV['PUPPET_VERSION'] || '~> 5.5.3'
   gem "rspec"
   gem "rspec-puppet"
-  gem "puppet-lint"
   gem "r10k"
   gem "puppetlabs_spec_helper"
   gem 'onceover', '>= 3.8.0'

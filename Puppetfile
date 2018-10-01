@@ -74,5 +74,5 @@ mod 'os_updates',
   :git => 'https://github.com/beergeek/os_updates.git',
   :branch => 'master'
 mod 'sqlserver',
-  :git => 'https://54.252.174.93:8443/scm/pup/puppetlabs-sqlserver.git',
+  :git => 'https://192.168.0.6:8443/scm/pup/puppetlabs-sqlserver.git',
   :tag => '2.1.1'

@@ -32,7 +32,7 @@ mod "puppetlabs/puppet_agent", :latest
 mod "puppetlabs/reboot", :latest
 mod "puppetlabs/registry", :latest
 mod "puppetlabs/ruby", :latest
-mod "puppetlabs/sqlserver", :latest
+#mod "puppetlabs/sqlserver", :latest
 mod "puppetlabs/stdlib", :latest
 mod "puppetlabs/tomcat", :latest
 mod "puppetlabs/vcsrepo", :latest
@@ -73,3 +73,6 @@ mod 'albatrossflavour-os_patching', '0.5.0'
 mod 'os_updates',
   :git => 'https://github.com/beergeek/os_updates.git',
   :branch => 'master'
+mod 'sqlserver',
+  :git => 'https://54.252.174.93:8443/scm/pup/puppetlabs-sqlserver.git',
+  :tag => '2.1.1'

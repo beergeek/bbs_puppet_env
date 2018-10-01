@@ -17,12 +17,28 @@ classes:
 nodes:
   - CentOS-6.6-64
   - CentOS-7.0-64
+  - bbs.puppet.vm
+  - pfa0.puppet.vm
+  - jira.puppet.vm
+
+node_groups:
+  general_nodes:
+    - CentOS-6.6-64
+    - CentOS-7.0-64
 
 # You can group classes here to save typing
-#class_groups:
+class_groups:
+  general:
+    - role::com_server
+    - role::db_server
+    - role::load_balancer
+    - role::mom_server
+    - role::monitor_server
+    - role::replica
+    - role::web_server
 
-shared_examples:
-  - test_linux
+#shared_examples:
+#  - test_linux
 
 # You can group nodes here to save typing
 # We have created a 'non_windows_nodes' group because we can't
@@ -31,11 +47,18 @@ shared_examples:
 #node_groups:
 
 test_matrix:
-  - all_nodes:
-      classes: 'all_classes'
+  - general_nodes:
+      classes: 'general'
       tests: 'spec'
-      static_classes:
-        - profile::base
+  - bbs.puppet.vm:
+      classes: 'role::bbs_server'
+      tests: 'spec'
+  - jira.puppet.vm:
+      classes: 'role::jira_server'
+      tests: 'spec'
+  - pfa0.puppet.vm:
+      classes: 'role::pfa_server'
+      tests: 'spec'
 
 functions:
   puppetdb_query:

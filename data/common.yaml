@@ -418,8 +418,6 @@ profile::base::sysctl_defaults:
   ensure: present
   permanent: 'yes'
 
-
-
-
-
-
+profile::web_services::apache::website_defaults:
+  port: '80'
+  priority: '10'

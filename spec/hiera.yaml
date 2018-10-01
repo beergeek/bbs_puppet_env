@@ -12,7 +12,7 @@ hierarchy:
   - name: 'Normal Data'
     paths:
       - "data_centre/%{trusted.extensions.pp_datacenter}.yaml"
-      - "node/%{trusted.certname}.yaml"
+      - "node/%{clientcert}.yaml"
       - "role/%{trusted.extensions.pp_role}.yaml"
       - "common.yaml"
 

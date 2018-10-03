@@ -33,7 +33,7 @@ mod "puppetlabs/reboot", :latest
 mod "puppetlabs/registry", :latest
 mod "puppetlabs/ruby", :latest
 #mod "puppetlabs/sqlserver", :latest
-mod "puppetlabs/stdlib", :latest
+#mod "puppetlabs/stdlib", :latest
 mod "puppetlabs/tomcat", :latest
 mod "puppetlabs/vcsrepo", :latest
 mod "puppetlabs/wsus_client", :latest
@@ -73,6 +73,9 @@ mod 'albatrossflavour-os_patching', '0.5.0'
 mod 'os_updates',
   :git => 'https://github.com/beergeek/os_updates.git',
   :branch => 'master'
+mod 'stdlib',
+  :git => 'ssh://git@bbs.puppet.vm:7999/pup/puppetlabs-stdlib.git',
+  :tag => '5.1.0'
 mod 'sqlserver',
   :git => 'ssh://git@bbs.puppet.vm:7999/pup/puppetlabs-sqlserver.git',
   :tag => '2.1.1'

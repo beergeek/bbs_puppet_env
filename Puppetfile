@@ -79,4 +79,3 @@ mod 'sqlserver',
 mod 'jira',
   :git => 'ssh://git@bbs.puppet.vm:7999/pup/beergeek-jira.git',
   :branch => 'master'
-

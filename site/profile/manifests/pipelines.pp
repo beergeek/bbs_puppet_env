@@ -44,7 +44,7 @@ class profile::pipelines (
       detach                   => $detach,
       ports                    => $pfc_ports,
       net                      => $docker_network_name,
-      extra_parameters         => [ "--add-host ${master_fqdn}:${master_ip} ${git_server_fqdn}:${git_server_ip}" ],
+      extra_parameters         => [ "--add-host ${master_fqdn}:${master_ip}", "--add-host ${git_server_fqdn}:${git_server_ip}" ],
       remove_container_on_stop => true,
     }
   }
@@ -57,7 +57,7 @@ class profile::pipelines (
       detach                   => $detach,
       ports                    => $pfa_ports,
       net                      => $docker_network_name,
-      extra_parameters         => [ "--add-host ${master_fqdn}:${master_ip} ${git_server_fqdn}:${git_server_ip}" ],
+      extra_parameters         => [ "--add-host ${master_fqdn}:${master_ip}", "--add-host ${git_server_fqdn}:${git_server_ip}" ],
       remove_container_on_stop => false,
       env                      => $pfa_env_params,
     }
@@ -72,7 +72,7 @@ class profile::pipelines (
       ports                    => $cd4pe_ports,
       net                      => $docker_network_name,
       remove_container_on_stop => true,
-      extra_parameters         => [ "--add-host ${master_fqdn}:${master_ip} ${git_server_fqdn}:${git_server_ip}" ],
+      extra_parameters         => [ "--add-host ${master_fqdn}:${master_ip}", "--add-host ${git_server_fqdn}:${git_server_ip}" ],
       env                      => $cd4pe_env_params,
     }
   }

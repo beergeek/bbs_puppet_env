@@ -63,9 +63,6 @@ mod 'terminate',
 mod 'install_date',
   :git => 'https://github.com/beergeek/install_date.git',
   :branch => 'master'
-mod 'jira',
-  :git => 'https://github.com/beergeek/jira.git',
-  :branch => 'master'
 mod 'bbs',
   :git => 'https://github.com/beergeek/bbs.git',
   :branch => 'master'
@@ -79,3 +76,6 @@ mod 'stdlib',
 mod 'sqlserver',
   :git => 'ssh://git@bbs.puppet.vm:7999/pup/puppetlabs-sqlserver.git',
   :tag => '2.1.1'
+mod 'jira',
+  :git => 'ssh://git@bbs.puppet.vm:7999/pup/beergeek-jira.git',
+  :branch => 'master'

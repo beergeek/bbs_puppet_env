@@ -6,7 +6,9 @@ class profile::pipelines (
   Stdlib::IP::Address::V4::CIDR    $docker_network_subnet  = '192.168.168.0/24',
   Stdlib::IP::Address::Nosubnet    $docker_network_gateway = '192.168.168.1',
   Stdlib::IP::Address::Nosubnet    $master_ip              = '192.168.0.10',
+  Stdlib::IP::Address::Nosubnet    $git_server_ip          = '192.168.0.6',
   Stdlib::Host                     $master_fqdn            = 'master.puppet.vm',
+  Stdlib::Host                     $git_server_fqdn        = 'bbs.puppet.vm',
   Array[String]                    $pfa_ports              = ['8080:8080','8000:8000','7000:7000'],
   Array[String]                    $pfc_ports              = ['8080:8080','8000:8000','7000:7000'],
   Array[String]                    $cd4pe_ports            = ['8080:8080','8000:8000','7000:7000'],
@@ -42,7 +44,7 @@ class profile::pipelines (
       detach                   => $detach,
       ports                    => $pfc_ports,
       net                      => $docker_network_name,
-      extra_parameters         => [ "--add-host ${master_fqdn}:${master_ip}" ],
+      extra_parameters         => [ "--add-host ${master_fqdn}:${master_ip} ${git_server_fqdn}:${git_server_ip}" ],
       remove_container_on_stop => true,
     }
   }
@@ -55,7 +57,7 @@ class profile::pipelines (
       detach                   => $detach,
       ports                    => $pfa_ports,
       net                      => $docker_network_name,
-      extra_parameters         => [ "--add-host ${master_fqdn}:${master_ip}" ],
+      extra_parameters         => [ "--add-host ${master_fqdn}:${master_ip} ${git_server_fqdn}:${git_server_ip}" ],
       remove_container_on_stop => false,
       env                      => $pfa_env_params,
     }
@@ -70,7 +72,7 @@ class profile::pipelines (
       ports                    => $cd4pe_ports,
       net                      => $docker_network_name,
       remove_container_on_stop => true,
-      extra_parameters         => [ "--add-host ${master_fqdn}:${master_ip}" ],
+      extra_parameters         => [ "--add-host ${master_fqdn}:${master_ip} ${git_server_fqdn}:${git_server_ip}" ],
       env                      => $cd4pe_env_params,
     }
   }

@@ -1,6 +1,7 @@
 #
 class profile::pipelines (
   Boolean                          $run_artifactory        = false,
+  Boolean                          $enable_firewall        = false,
   Array[Enum['pfa','pfc','cd4pe']] $pipeline_type          = ['pfa','pfc','cd4pe'],
   String                           $docker_network_name    = 'pipelines',
   Stdlib::IP::Address::V4::CIDR    $docker_network_subnet  = '192.168.168.0/24',
@@ -16,6 +17,7 @@ class profile::pipelines (
   Optional[Array[String]]          $pfa_env_params         = ['USER=pfa',"MYSQL_PWD=P@ssword123", "DB_ENDPOINT=mysql://192.168.0.23:3306/pfa"],
   Optional[Array[String]]          $pfc_env_params         = ['USER=pfc',"MYSQL_PWD=P@ssword123", "DB_ENDPOINT=mysql://192.168.0.23:3306/pfc"],
   Optional[Array[String]]          $cd4pe_env_params       = ['DB_USER=cd4pe','DB_PASS=P@ssword123','DB_ENDPOINT=mysql://192.168.0.23:3306/cd4pe','PFI_SECRET_KEY=g4vmW6D43Qw5CNT+72rBDw==','DUMP_URI=dump://localhost:7000'],
+  Optional[Hash]                   $firewall_rules        = undef,
 ) {
 
   include profile::docker
@@ -49,6 +51,7 @@ class profile::pipelines (
       remove_container_on_stop => true,
       env                      => $pfc_env_params,
     }
+
   }
   if 'pfa' in $pipeline_type {
     docker::image { 'puppet/pipelines-for-applications':

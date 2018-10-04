@@ -1,4 +1,4 @@
-class profile::web_services::tomcat_services (
+class profile::tomcat_services (
   Hash $tomcat_installs,
   Hash $tomcat_servers,
   Hash $tomcat_instances,

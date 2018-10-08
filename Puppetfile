@@ -66,7 +66,6 @@ mod 'install_date',
 mod 'bbs',
   :git => 'https://github.com/beergeek/bbs.git',
   :branch => 'master'
-mod 'albatrossflavour-os_patching', '0.5.0'
 mod 'os_updates',
   :git => 'https://github.com/beergeek/os_updates.git',
   :branch => 'master'

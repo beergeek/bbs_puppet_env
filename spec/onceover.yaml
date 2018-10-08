@@ -11,6 +11,7 @@ classes:
   - role::jira_server
   - role::bbs_server
   - role::pfa_server
+  - role::tomcat_server
 
 # Nodes to tests classes on, this refers to a 'factset' or 'nodeset'
 # depending on weather you are running 'spec' or 'acceptance' tests
@@ -37,6 +38,7 @@ class_groups:
     - role::monitor_server
     - role::replica
     - role::web_server
+    - role::tomcat_server
 
 #shared_examples:
 #  - test_linux

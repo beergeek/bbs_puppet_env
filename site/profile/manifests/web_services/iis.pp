@@ -11,7 +11,7 @@ class profile::web_services::iis (
 
   # remove default site
   iis_site { 'Default Web Site':
-    ensure  => 'Absent',
+    ensure  => 'absent',
     require => Iis_feature['Web-WebServer'],
   }
 

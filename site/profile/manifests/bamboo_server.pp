@@ -140,7 +140,7 @@ class profile::bamboo_server (
       password     => 'changeit',
       trustcacerts => true,
       require      => [Java::Oracle['jdk8'],File["${bamboo_data_dir}/bamboo.jks"]],
-      notify       => Class['bamboo'],
+      #notify       => Class['bamboo'],
     }
   }
 
@@ -169,7 +169,7 @@ class profile::bamboo_server (
       password     => 'changeit',
       trustcacerts => true,
       require      => [Java::Oracle['jdk8'],File["${bamboo_data_dir}/bamboo.jks"]],
-      notify       => Class['bamboo'],
+      #notify       => Class['bamboo'],
     }
   }
 

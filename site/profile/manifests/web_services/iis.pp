@@ -5,7 +5,7 @@ class profile::web_services::iis (
 ) {
 
 
-  require ::iis
+  require iis
 
   # remove default site
   ::iis::website { 'Default Web Site':

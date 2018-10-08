@@ -20,6 +20,7 @@ nodes:
   - bbs.puppet.vm
   - pfa0.puppet.vm
   - jira.puppet.vm
+  - windows2102r2
 
 node_groups:
   general_nodes:
@@ -58,6 +59,9 @@ test_matrix:
       tests: 'spec'
   - pfa0.puppet.vm:
       classes: 'role::pfa_server'
+      tests: 'spec'
+  - windows2102r2:
+      classes: 'role::web_server'
       tests: 'spec'
 
 functions:

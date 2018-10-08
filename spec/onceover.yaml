@@ -22,6 +22,8 @@ nodes:
   - pfa0.puppet.vm
   - jira.puppet.vm
   - windows2102r2
+  - tomcat_server
+  - web_server
 
 node_groups:
   general_nodes:
@@ -62,6 +64,13 @@ test_matrix:
   - pfa0.puppet.vm:
       classes: 'role::pfa_server'
       tests: 'spec'
+  - tomcat_server:
+      classes: 'role::tomcat_server'
+      tests: 'spec'
+  - web_server:
+      classes: 'role::web_server'
+      tests: 'spec'
+
 
 #  - windows2102r2:
 #    classes: 'role::web_server'

@@ -22,6 +22,7 @@ class profile::pipelines (
 
   include profile::docker
 
+  # detach is default in RHEL7, so double detach makes the container fail
   if $facts['os']['family'] == 'RedHat' {
     if $facts['os']['release']['major'] == '7' {
       $detach = undef

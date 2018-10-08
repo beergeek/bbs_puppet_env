@@ -1,8 +1,8 @@
 class profile::web_services::iis (
-  Optional[Hash] $website_hash = undef,
-  Boolean        $lb           = true,
-  Boolean        $export_host  = false,
-  Hash           $iis_features = ['Web-WebServer','Web-Scripting-Tools'],
+  Optional[Hash]   $website_hash = undef,
+  Boolean          $lb           = true,
+  Boolean          $export_host  = false,
+  Array[String[1]] $iis_features = ['Web-WebServer','Web-Scripting-Tools'],
 ) {
 
   iis_features { $iis_features:

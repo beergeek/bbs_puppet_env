@@ -459,7 +459,7 @@ profile::base::cacerts:
 
 profile::wsus_services::server_url: 'http://wsus.puppet.vm:8530'
 profile::tomcat_services::tomcat_installs:
-  '/opt/tomcat0':
+  '/opt/tomcat9':
     source_url: 'https://www.apache.org/dist/tomcat/tomcat-9/v9.0.x/bin/apache-tomcat-9.0.x.tar.gz'
-  '/opt/tomcat1':
+  '/opt/tomcat7':
     source_url: 'http://www-eu.apache.org/dist/tomcat/tomcat-7/v7.0.x/bin/apache-tomcat-7.0.x.tar.gz'

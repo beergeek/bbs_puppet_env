@@ -60,9 +60,10 @@ test_matrix:
   - pfa0.puppet.vm:
       classes: 'role::pfa_server'
       tests: 'spec'
-  - windows2102r2:
-      classes: 'role::web_server'
-      tests: 'spec'
+
+#  - windows2102r2:
+#    classes: 'role::web_server'
+#    tests: 'spec'
 
 functions:
   puppetdb_query:

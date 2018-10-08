@@ -14,7 +14,7 @@ class profile::tomcat_services (
   }
 
   $tomcat_instances.each |String $instance_name, Hash $instance_info| {
-    tomcat::config::instance { $instance_name:
+    tomcat::instance { $instance_name:
       * => $instance_info,;
     }
   }

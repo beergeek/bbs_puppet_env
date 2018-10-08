@@ -19,21 +19,21 @@ profile::tomcat_services::tomcat_instances:
     catalina_home: '/opt/tomcat7'
     catalina_base: '/opt/tomcat7/one'
 profile::tomcat_services::tomcat_servers:
-  'tomcat9-test2':
-    catalina_base: '/opt/tomcat9/two'
+  'tomcat9-test1':
+    catalina_base: '/opt/tomcat9/one'
     port: ’8006’
-  'tomcat1-test2':
-    catalina_base: '/opt/tomcat7/two'
+  'tomcat7-test1':
+    catalina_base: '/opt/tomcat7/one'
     port: ’8015’
 profile::tomcat_services::tomcat_connectors:
-  'tomcat9-test2-http':
-    catalina_base: '/opt/tomcat9/two'
+  'tomcat9-test1-http':
+    catalina_base: '/opt/tomcat9/one'
     port: '8081'
     protocol: 'HTTP/1.1'
     additional_attributes:
       'redirectPort': '8443'
-  'tomcat7-test2-http':
-    catalina_base: '/opt/tomcat7/two'
+  'tomcat7-test1-http':
+    catalina_base: '/opt/tomcat7/one'
     port: '8080'
     protocol: 'HTTP/1.1'
     additional_attributes:

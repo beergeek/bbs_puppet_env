@@ -58,11 +58,12 @@ class profile::web_services::iis (
 
           # Exported load balancer configuration if required
           if $lb {
+            $_port = split($binding['bindinginformation'],':')[1]
             @@haproxy::balancermember { "${site_name}-${facts['fqdn']}":
               listening_service => $site_name,
               server_names      => $facts['fqdn'],
               ipaddresses       => $facts['networking']['ip'],
-              ports             => $binding['port'],
+              ports             => $_port,
               options           => 'check',
             }
           }

@@ -239,12 +239,7 @@
     },
     "osfamily": "windows",
     "package_provider": "windows",
-    "path": "C:\\Program Files\\Puppet Labs\\Puppet\\facter/bin;C:\\Program Files\\Puppet Labs\\Puppet\\facter/../puppet
-/bin;C:\\Program Files\\Puppet Labs\\Puppet\\puppet\\bin;C:\\Program Files\\Puppet Labs\\Puppet\\facter\\bin;C:\\Program
- Files\\Puppet Labs\\Puppet\\hiera\\bin;C:\\Program Files\\Puppet Labs\\Puppet\\mcollective\\bin;C:\\Program Files\\Pupp
-et Labs\\Puppet\\bin;C:\\Program Files\\Puppet Labs\\Puppet\\sys\\ruby\\bin;C:\\Program Files\\Puppet Labs\\Puppet\\sys\
-\tools\\bin;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0
-\\;C:\\Program Files\\Amazon\\cfn-bootstrap\\;C:\\Program Files\\Puppet Labs\\Puppet\\bin",
+    "path": "C:\\Program Files\\Puppet Labs\\Puppet\\facter/bin;C:\\Program Files\\Puppet Labs\\Puppet\\facter/../puppet/bin;C:\\Program Files\\Puppet Labs\\Puppet\\puppet\\bin;C:\\Program Files\\Puppet Labs\\Puppet\\facter\\bin;C:\\Program Files\\Puppet Labs\\Puppet\\hiera\\bin;C:\\Program Files\\Puppet Labs\\Puppet\\mcollective\\bin;C:\\Program Files\\Puppet Labs\\Puppet\\bin;C:\\Program Files\\Puppet Labs\\Puppet\\sys\\ruby\\bin;C:\\Program Files\\Puppet Labs\\Puppet\\sys\\tools\\bin;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Amazon\\cfn-bootstrap\\;C:\\Program Files\\Puppet Labs\\Puppet\\bin",
     "pe_concat_basedir": "C:/ProgramData/PuppetLabs/puppet/cache/pe_concat",
     "physicalprocessorcount": 1,
     "platform_symlink_writable": false,

@@ -28,13 +28,13 @@ profile::tomcat_services::tomcat_servers:
 profile::tomcat_services::tomcat_connectors:
   'tomcat9-test2-http':
     catalina_base: '/opt/tomcat9/two'
-    port: '8081',
+    port: '8081'
     protocol: 'HTTP/1.1'
     additional_attributes:
       'redirectPort': '8443'
   'tomcat7-test2-http':
     catalina_base: '/opt/tomcat7/two'
-    port: '8080',
+    port: '8080'
     protocol: 'HTTP/1.1'
     additional_attributes:
       'redirectPort': '8444'

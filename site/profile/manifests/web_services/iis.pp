@@ -1,15 +1,18 @@
 class profile::web_services::iis (
   Optional[Hash] $website_hash = undef,
-  Boolean $lb                  = true,
-  Boolean $export_host         = false,
+  Boolean        $lb           = true,
+  Boolean        $export_host  = false,
+  Hash           $iis_features = ['Web-WebServer','Web-Scripting-Tools'],
 ) {
 
-
-  require iis
+  iis_features { $iis_features:
+    ensure => present,
+  }
 
   # remove default site
-  ::iis::website { 'Default Web Site':
-    ensure => 'Absent',
+  iis_website { 'Default Web Site':
+    ensure  => 'Absent',
+    require => Iis_feature['Web-WebServer'],
   }
 
   if $website_hash {
@@ -33,8 +36,9 @@ class profile::web_services::iis (
           }
         }
 
-        iis::website { $site_name:
-          * => $website,
+        iis_website { $site_name:
+          *       => delete($website,'database_search'),
+          require => Iis_feature['Web-WebServer'],
         }
 
         $website['binding_hash'].each |Hash $binding| {

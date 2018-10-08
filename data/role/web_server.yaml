@@ -38,12 +38,12 @@ profile::web_services::iis::website_hash:
   'elmo.puppet.vm':
     physicalpath: 'C:\inetpub\elmo'
     bindings: [
-      {protocol: ''*:80:'',bindinginformation: '*:80:'}]
+      {protocol: 'http',bindinginformation: '*:80:'}]
     database_search: "elmo"
   'kermit.puppet.vm':
     physicalpath: 'C:\inetpub\kermit'
     bindings: [
-      {protocol: ''*:80:'',bindinginformation: '*:80:'}]
+      {protocol: 'http',bindinginformation: '*:80:'}]
     database_search: "kermit"
   'animal.puppet.vm':
     physicalpath: 'C:\inetpub\animal'
@@ -52,5 +52,5 @@ profile::web_services::iis::website_hash:
   'rob.puppet.vm':
     physicalpath: 'C:\inetpub\rob'
     bindings: [
-      {protocol: ''*:80:'',bindinginformation: '*:80:'}]
+      {protocol: 'http',bindinginformation: '*:80:'}]
 

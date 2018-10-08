@@ -10,7 +10,7 @@ class profile::web_services::iis (
   }
 
   # remove default site
-  iis_website { 'Default Web Site':
+  iis_site { 'Default Web Site':
     ensure  => 'Absent',
     require => Iis_feature['Web-WebServer'],
   }
@@ -36,7 +36,7 @@ class profile::web_services::iis (
           }
         }
 
-        iis_website { $site_name:
+        iis_site { $site_name:
           *       => delete($website,'database_search'),
           require => Iis_feature['Web-WebServer'],
         }

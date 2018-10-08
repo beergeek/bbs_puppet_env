@@ -20,10 +20,10 @@ profile::tomcat_services::tomcat_intances:
     catalina_base: '/opt/tomcat7/one'
 profile::tomcat_services::tomcat_servers:
   'tomcat9-test2':
-    catalina_base: '/opt/tomcat9/two',
+    catalina_base: '/opt/tomcat9/two'
     port: ’8006’
   'tomcat1-test2':
-    catalina_base: '/opt/tomcat7/two',
+    catalina_base: '/opt/tomcat7/two'
     port: ’8015’
 profile::tomcat_services::tomcat_connectors:
   'tomcat9-test2-http':

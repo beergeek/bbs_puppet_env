@@ -197,7 +197,7 @@ class profile::jira_server (
     }
   }
 
-  if $bamboo_cert {
+  if $jira_cert {
     file { "${jira_data_dir}/bamboo.puppet.vm.pem":
       ensure  => file,
       content => $bamboo_cert,

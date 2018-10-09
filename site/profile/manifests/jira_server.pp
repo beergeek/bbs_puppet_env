@@ -7,6 +7,8 @@ class profile::jira_server (
   Optional[String[1]]         $cacert                 = undef,
   Optional[String[1]]         $cert                   = undef,
   Optional[String[1]]         $private_key            = undef,
+  Optional[String[1]]         $bamboo_cert            = undef,
+  Optional[String[1]]         $bbs_cert               = undef,
   Stdlib::Absolutepath        $java_home_default      = '/usr/java/jdk1.8.0_131/jre',
   Stdlib::Absolutepath        $jira_data_dir          = '/var/atlassian/application-data/jira',
   Stdlib::Absolutepath        $jira_install_dir       = '/opt/atlassian/jira',
@@ -175,4 +177,43 @@ class profile::jira_server (
       #notify       => Class['jira'],
     }
   }
+
+  if $bbs_cert {
+    file { "${jira_data_dir}/bbs.puppet.vm.pem":
+      ensure  => file,
+      content => $bbs_cert,
+      owner   => $jira_user,
+      group   => $jira_grp,
+      mode    => '0444',
+    }
+    java_ks { 'bbs.puppet.vm':
+      ensure       => present,
+      certificate  => "${jira_data_dir}/bbs.puppet.vm.pem",
+      target       => "${jira_data_dir}/bamboo.jks",
+      password     => 'changeit',
+      trustcacerts => true,
+      require      => [Java::Oracle['jdk8'],File["${jira_data_dir}/jira.jks"]],
+      #notify       => Class['bamboo'],
+    }
+  }
+
+  if $bamboo_cert {
+    file { "${jira_data_dir}/bamboo.puppet.vm.pem":
+      ensure  => file,
+      content => $bamboo_cert,
+      owner   => $jira_user,
+      group   => $jira_grp,
+      mode    => '0444',
+    }
+    java_ks { 'bamboo.puppet.vm':
+      ensure       => present,
+      certificate  => "${jira_data_dir}/bamboo.puppet.vm.pem",
+      target       => "${jira_data_dir}/jira.jks",
+      password     => 'changeit',
+      trustcacerts => true,
+      require      => [Java::Oracle['jdk8'],File["${jira_data_dir}/jira.jks"]],
+      #notify       => Class['bamboo'],
+    }
+  }
+
 }

@@ -10,6 +10,8 @@ class profile::bamboo_server (
   Optional[String[1]]         $cacert                   = undef,
   Optional[String[1]]         $cert                     = undef,
   Optional[String[1]]         $private_key              = undef,
+  Optional[String[1]]         $jira_cert                = undef,
+  Optional[String[1]]         $bbs_cert                 = undef,
   String                      $bamboo_grp               = 'bamboo',
   String                      $bamboo_user              = 'bamboo',
   String                      $bamboo_version           = '6.6.1',
@@ -165,6 +167,44 @@ class profile::bamboo_server (
       ensure       => present,
       certificate  => "${bamboo_data_dir}/cert.pem",
       private_key  => "${bamboo_data_dir}/key.pem",
+      target       => "${bamboo_data_dir}/bamboo.jks",
+      password     => 'changeit',
+      trustcacerts => true,
+      require      => [Java::Oracle['jdk8'],File["${bamboo_data_dir}/bamboo.jks"]],
+      #notify       => Class['bamboo'],
+    }
+  }
+
+  if $bbs_cert {
+    file { "${bamboo_data_dir}/bbs.puppet.vm.pem":
+      ensure  => file,
+      content => $bbs_cert,
+      owner   => $bamboo_user,
+      group   => $bamboo_grp,
+      mode    => '0444',
+    }
+    java_ks { 'bbs.puppet.vm':
+      ensure       => present,
+      certificate  => "${bamboo_data_dir}/bbs.puppet.vm.pem",
+      target       => "${bamboo_data_dir}/bamboo.jks",
+      password     => 'changeit',
+      trustcacerts => true,
+      require      => [Java::Oracle['jdk8'],File["${bamboo_data_dir}/bamboo.jks"]],
+      #notify       => Class['bamboo'],
+    }
+  }
+
+  if $jira_cert {
+    file { "${bamboo_data_dir}/jira.puppet.vm.pem":
+      ensure  => file,
+      content => $jira_cert,
+      owner   => $bamboo_user,
+      group   => $bamboo_grp,
+      mode    => '0444',
+    }
+    java_ks { 'jira.puppet.vm':
+      ensure       => present,
+      certificate  => "${bamboo_data_dir}/jira.puppet.vm.pem",
       target       => "${bamboo_data_dir}/bamboo.jks",
       password     => 'changeit',
       trustcacerts => true,

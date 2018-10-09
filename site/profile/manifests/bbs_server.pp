@@ -13,6 +13,8 @@ class profile::bbs_server (
   Optional[String[1]]         $cert                   = undef,
   Optional[String[1]]         $private_key            = undef,
   Optional[String[1]]         $bbs_version            = undef,
+  Optional[String[1]]         $jira_cert              = undef,
+  Optional[String[1]]         $bamboo_cert            = undef,
   Stdlib::Absolutepath        $java_home_default      = '/usr/java/jdk1.8.0_131/jre',
   Boolean                     $enable_firewall        = true,
   Optional[Hash]              $firewall_rules         = {},
@@ -178,4 +180,43 @@ class profile::bbs_server (
       #notify       => Class['bbs'],
     }
   }
+
+  if $bamboo_cert {
+    file { "${bbs_data_dir}/bamboo.puppet.vm.pem":
+      ensure  => file,
+      content => $bamboo_cert,
+      owner   => $bbs_user,
+      group   => $bbs_grp,
+      mode    => '0444',
+    }
+    java_ks { 'bamboo.puppet.vm':
+      ensure       => present,
+      certificate  => "${bbs_data_dir}/bamboo.puppet.vm.pem",
+      target       => "${bbs_data_dir}/bbs.jks",
+      password     => 'changeit',
+      trustcacerts => true,
+      require      => [Java::Oracle['jdk8'],File["${bbs_data_dir}/bbs.jks"]],
+      #notify       => Class['bamboo'],
+    }
+  }
+
+  if $jira_cert {
+    file { "${bbs_data_dir}/jira.puppet.vm.pem":
+      ensure  => file,
+      content => $jira_cert,
+      owner   => $bbs_user,
+      group   => $bbs_grp,
+      mode    => '0444',
+    }
+    java_ks { 'jira.puppet.vm':
+      ensure       => present,
+      certificate  => "${bbs_data_dir}/jira.puppet.vm.pem",
+      target       => "${bbs_data_dir}/bbs.jks",
+      password     => 'changeit',
+      trustcacerts => true,
+      require      => [Java::Oracle['jdk8'],File["${bbs_data_dir}/bbs.jks"]],
+      #notify       => Class['bamboo'],
+    }
+  }
+
 }

@@ -11,6 +11,7 @@ class profile::jira_server (
   Optional[String[1]]         $bbs_cert               = undef,
   Stdlib::Absolutepath        $java_home_default      = '/usr/java/jdk1.8.0_131/jre',
   Stdlib::Absolutepath        $jira_data_dir          = '/var/atlassian/application-data/jira',
+  Optional[String[1]]         $java_args              = "-Djavax.net.ssl.keyStore=${jira_data_dir}/jira.jks -Djavax.net.ssl.trustStore=${jira_data_dir}/jira.jks",
   Stdlib::Absolutepath        $jira_install_dir       = '/opt/atlassian/jira',
   String                      $jira_grp               = 'jira',
   String                      $jira_user              = 'jira',
@@ -85,6 +86,7 @@ class profile::jira_server (
   }
 
   class { 'jira':
+    java_args          => $java_args,
     java_home          => $_java_home,
     jira_data_dir      => $jira_data_dir,
     jira_grp           => $jira_grp,

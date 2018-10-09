@@ -15,6 +15,7 @@ class profile::bbs_server (
   Optional[String[1]]         $bbs_version            = undef,
   Optional[String[1]]         $jira_cert              = undef,
   Optional[String[1]]         $bamboo_cert            = undef,
+  #Optional[String[1]]         $java_args              = "-Djavax.net.ssl.keyStore=${bbs_data_dir}/bbs.jks -Djavax.net.ssl.trustStore=${bbs_data_dir}/bbs.jks",
   Stdlib::Absolutepath        $java_home_default      = '/usr/java/jdk1.8.0_131/jre',
   Boolean                     $enable_firewall        = true,
   Optional[Hash]              $firewall_rules         = {},
@@ -96,6 +97,7 @@ class profile::bbs_server (
   }
 
   class { 'bbs':
+    #java_args             => $java_args,
     java_home             => $_java_home,
     bbs_data_dir          => $bbs_data_dir,
     bbs_grp               => $bbs_grp,

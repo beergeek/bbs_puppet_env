@@ -51,6 +51,11 @@ mod 'beergeek/enable_noop', :latest
 mod 'beergeek/disable_noop', :latest
 mod 'beergeek/facecount', :latest
 mod 'puppetlabs/resource', :latest
+mod 'puppetlabs-yumrepo_core', '1.0.1'
+mod 'puppetlabs-nagios_core', '1.0.2'
+mod 'puppetlabs-host_core', '1.0.1'
+mod 'puppetlabs-augeas_core', '1.0.3'
+mod 'puppetlabs-cron_core', '1.0.0'
 
 mod 'node_manager',
   :git => 'https://github.com/puppetlabs/prosvcs-node_manager.git'

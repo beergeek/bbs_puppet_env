@@ -57,6 +57,8 @@ mod 'puppetlabs-host_core', :latest
 mod 'puppetlabs-augeas_core', :latest
 mod 'puppetlabs-cron_core', :latest
 mod 'puppetlabs-cd4pe', :latest
+mod 'puppetlabs-puppet_authorization', :latest
+mod 'puppetlabs-hocon', :latest
 
 mod 'node_manager',
   :git => 'https://github.com/puppetlabs/prosvcs-node_manager.git'
